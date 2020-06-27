@@ -1,0 +1,6 @@
+framework module Pods_emerge_van_niranjanTests {
+  umbrella header "Pods-emerge-van-niranjanTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
