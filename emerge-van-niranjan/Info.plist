@@ -60,5 +60,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We use your location to help you find the hospital with the lowest travel time from you. Your location is used to get travel time information from the Mapbox Api.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>we use ur location to help find hospital</string>
+	<key>UIRequiredDeviceCapabilites</key>
+	<string>location-services</string>
 </dict>
 </plist>

@@ -8,36 +8,100 @@
 
 import UIKit
 import Alamofire
+import Foundation
+import CoreLocation
 
-class HospitalTableViewController: UITableViewController {
+class HospitalTableViewController: UITableViewController, CLLocationManagerDelegate {
     
-    var responseData: String = ""
+    var locationManager: CLLocationManager?
+    
+    
+    var bookings: NSDictionary = [:]
+    
+    struct Objects{
+        var Name : Any
+        var Time: Any
+    }
+    
+    
+    var objectArray = [Objects]()
+    
+    func getUserLocation(){
+        locationManager = CLLocationManager()
+        locationManager?.requestAlwaysAuthorization()
+        locationManager?.startUpdatingLocation()
+        locationManager?.delegate = self
+        
+    }
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        AF.request("https://helloworld-6dcqnh4gka-uw.a.run.app").responseJSON{response in self.inputString(text: response.description)}}
+        getUserLocation()
+        
+        let waitTimeTask = URLSession.shared.dataTask(with: URL(string :"https://helloworld-6dcqnh4gka-uw.a.run.app")!) { data,response ,error in
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                if let myDict = json as? NSDictionary{
+                    for (key, value) in myDict {
+                        print("\(key) -> \(value)")
+                        if let time = value as? String{
+                        self.objectArray.append(Objects(Name: key, Time: time))
+                    }
+                        
+                    }
+                }
+                
+            } catch {
+                print("JSON error: \(error.localizedDescription)")
+            }
+            
+            
+            
+           
+            
+            for var (object) in self.objectArray{
+            
+            if var waitTime = object.Time as? String {
+                waitTime = waitTime.trimmingCharacters(in: .whitespacesAndNewlines)
+                let hours = Int(waitTime.prefix(2))
+                let minutes = Int(waitTime.suffix(2))
+                object.Time = hours!*60 + minutes!
+                
+                
+            }
+            
+                
+                
+            }
+        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            print(locations.last!)
+        }
+        }
+        
+        
+        waitTimeTask.resume()
     
-    func inputString( text : String){
-         responseData = text
-        print(responseData)
+
+
+        
+    
+        
+        
+    
     }
-    
-    
     
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
