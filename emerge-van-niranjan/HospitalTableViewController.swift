@@ -14,16 +14,13 @@ import CoreLocation
 class HospitalTableViewController: UITableViewController, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?
-    
-    
+    var currentLocation: [Double] = [1,2]
     var bookings: NSDictionary = [:]
-    
     struct Objects{
-        var Name : Any
-        var Time: Any
+        var Name : Any = ""
+        var Time: Any = ""
     }
-    
-    
+    var travelTimeArray = [Any]()
     var objectArray = [Objects]()
     
     func getUserLocation(){
@@ -31,21 +28,12 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
         locationManager?.requestAlwaysAuthorization()
         locationManager?.startUpdatingLocation()
         locationManager?.delegate = self
-        
-    }
-    
-    
-    
-    
-    
-    
+         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         getUserLocation()
-        
+    
         let waitTimeTask = URLSession.shared.dataTask(with: URL(string :"https://helloworld-6dcqnh4gka-uw.a.run.app")!) { data,response ,error in
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: [])
@@ -53,50 +41,81 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
                     for (key, value) in myDict {
                         print("\(key) -> \(value)")
                         if let time = value as? String{
-                        self.objectArray.append(Objects(Name: key, Time: time))
-                    }
-                        
-                    }
-                }
-                
-            } catch {
+                            self.objectArray.append(Objects(Name: key, Time: time))
+                }}}}
+            catch {
                 print("JSON error: \(error.localizedDescription)")
-            }
-            
-            
-            
-           
-            
-            for var (object) in self.objectArray{
-            
-            if var waitTime = object.Time as? String {
-                waitTime = waitTime.trimmingCharacters(in: .whitespacesAndNewlines)
-                let hours = Int(waitTime.prefix(2))
-                let minutes = Int(waitTime.suffix(2))
-                object.Time = hours!*60 + minutes!
-                
-                
-            }
-            
-                
-                
-            }
-        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            print(locations.last!)
-        }
-        }
+                }}
+        for var (object) in self.objectArray{
         
+        if var waitTime = object.Time as? String {
+            waitTime = waitTime.trimmingCharacters(in: .whitespacesAndNewlines)
+            if let hours = Int(waitTime.prefix(2)){
+                if let minutes = Int(waitTime.suffix(2)){
+                    object.Time = hours*60 + minutes}}
+            
+            
+            }}
         
         waitTimeTask.resume()
-    
-
-
-        
-    
-        
-        
-    
     }
+    
+    func locationManager(_ manager: CLLocationManager,  didUpdateLocations locations: [CLLocation]) {
+        if (self.currentLocation[0] != locations.last?.coordinate.latitude) && (self.currentLocation[1] != locations.last?.coordinate.longitude){
+            
+            self.currentLocation[0] = (locations.last?.coordinate.latitude)! as Double
+            
+            self.currentLocation[1] = (locations.last?.coordinate.longitude)! as Double
+            
+            let locationString = String(currentLocation[1]) + "," + String(currentLocation[0])
+            
+            let url = "https://api.mapbox.com/directions-matrix/v1/mapbox/driving-traffic/" + locationString + ";-123.1245,49.2622;-123.127930,49.281435;-123.146935,49.16873;-123.068991,49.320956;-123.095800,49.258308;-123.245415,49.264181;-123.129116,49.277396;-123.083663,49.312363?sources=0&destinations=1;2;3;4;5;6;7;8?&access_token=pk.eyJ1IjoibmFqbmFyaW52IiwiYSI6ImNrYzc0emt4cjBqeDgyd3Fwc2VteW1zazUifQ.Y_nh339cT90-LW4anOowbQ"
+            
+            let travelTimeTask = URLSession.shared.dataTask(with: URL(string:(url))!){data, response, error in do {
+            
+            let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                if let jsonDict=json as? NSDictionary{
+                    if let array = jsonDict["durations"] as? [Array<Any>]{
+                        
+                        
+                        for i in array{
+                            for j in i{
+                                self.travelTimeArray.append(j)
+                            }
+                    
+                            
+                        }
+        
+                    }
+                }            }
+            catch{
+                 print("JSON error: \(error.localizedDescription)")
+            }
+            }
+            
+            travelTimeTask.resume()
+            
+        }}
+        
+        
+
+            
+            
+        
+        
+
+    
+
+   
+}
+
+
+        
+    
+        
+        
+
+    
     
 
     // MARK: - Table view data source
@@ -158,4 +177,4 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
     }
     */
 
-}
+
