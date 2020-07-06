@@ -11,17 +11,34 @@ import Alamofire
 import Foundation
 import CoreLocation
 
+class MyCell: UITableViewCell{
+
+
+    @IBOutlet weak var HospitalName: UITextField!
+    @IBOutlet weak var WaitTime: UITextField!
+    
+    @IBOutlet weak var TotalTime: UITextField!
+    @IBOutlet weak var TravelTime: UITextField!
+}
+    
 class HospitalTableViewController: UITableViewController, CLLocationManagerDelegate {
+    
+    
     
     var locationManager: CLLocationManager?
     var currentLocation: [Double] = [1,2]
     var bookings: NSDictionary = [:]
-    struct Objects{
+    struct Object{
         var Name : Any = ""
         var Time: Any = ""
+        var Travel: Any = ""
     }
     var travelTimeArray = [Any]()
-    var objectArray = [Objects]()
+    var objectArray = [Object]()
+    
+    func compileObjects(){
+        print(objectArray)
+    }
     
     func getUserLocation(){
         locationManager = CLLocationManager()
@@ -39,25 +56,37 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
                 let json = try JSONSerialization.jsonObject(with: data!, options: [])
                 if let myDict = json as? NSDictionary{
                     for (key, value) in myDict {
-                        print("\(key) -> \(value)")
-                        if let time = value as? String{
-                            self.objectArray.append(Objects(Name: key, Time: time))
-                }}}}
+                        
+                        if var waitTime = value as? String{
+                            waitTime = waitTime.trimmingCharacters(in: .whitespacesAndNewlines)
+                            if let hours = Int(waitTime.prefix(2)){
+                                if let minutes = Int(waitTime.suffix(2)){
+                                    
+                                    let time = Int(hours*60 + minutes)
+                                    self.objectArray.append(Object(Name: key, Time: time))
+
+                                }}
+                                                        
+                            
+                }
+            
+                        
+                        
+                    }
+
+                }}
             catch {
                 print("JSON error: \(error.localizedDescription)")
                 }}
-        for var (object) in self.objectArray{
         
-        if var waitTime = object.Time as? String {
-            waitTime = waitTime.trimmingCharacters(in: .whitespacesAndNewlines)
-            if let hours = Int(waitTime.prefix(2)){
-                if let minutes = Int(waitTime.suffix(2)){
-                    object.Time = hours*60 + minutes}}
-            
-            
-            }}
+        
+                
+        
+        
         
         waitTimeTask.resume()
+        
+        
     }
     
     func locationManager(_ manager: CLLocationManager,  didUpdateLocations locations: [CLLocation]) {
@@ -80,12 +109,18 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
                         
                         for i in array{
                             for j in i{
-                                self.travelTimeArray.append(j)
-                            }
-                    
                             
+                                self.travelTimeArray.append(round((j as? Double)!/60))
+                                
+                            }
+                            
+                            
+                           
                         }
-        
+                        
+                   
+                    
+                        
                     }
                 }            }
             catch{
@@ -96,13 +131,25 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
             travelTimeTask.resume()
             
         }}
+    
+    
+    
         
         
 
             
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 8
+    }
+        
+    
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+             let cell = tableView.dequeueReusableCell(withIdentifier: "EstimateTableViewCell", for: indexPath) as! MyCell
             
-        
-        
+            
+            return cell
+            
+         }
 
     
 
@@ -118,19 +165,9 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
     
     
 
-    // MARK: - Table view data source
-
+   
+ 
     
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.
