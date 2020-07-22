@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ccX-35-KbX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,66 +15,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EstimateTableViewCell" rowHeight="140" id="yKc-rV-Sma" customClass="MyCell" customModule="emerge_van_niranjan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="140"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EstimateTableViewCell" rowHeight="116" id="yKc-rV-Sma" customClass="MyCell" customModule="emerge_van_niranjan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yKc-rV-Sma" id="8Jq-jv-qpR">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EDQ-yP-w6O">
-                                            <rect key="frame" x="20" y="19" width="240" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9iz-eB-91J">
-                                            <rect key="frame" x="20" y="64" width="120" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t8I-GN-9CH">
-                                            <rect key="frame" x="140" y="64" width="120" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKh-69-nDy">
-                                            <rect key="frame" x="278" y="19" width="97" height="79"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wait Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xo-yJ-fsK">
-                                            <rect key="frame" x="20" y="98" width="120" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5b5-LR-fhJ">
+                                            <rect key="frame" x="150" y="11" width="114.5" height="20"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Hospital Name">
+                                                    <attributes>
+                                                        <font key="NSFont" size="17" name="TrebuchetMS-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpq-PK-cM1">
+                                            <rect key="frame" x="150" y="39" width="115" height="39"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Travel Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKh-7Z-dEt">
-                                            <rect key="frame" x="140" y="99" width="120" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcT-Bf-sxd">
+                                            <rect key="frame" x="20" y="39" width="104" height="39"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time To Treatment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiO-jU-Hn2">
-                                            <rect key="frame" x="278" y="98" width="97" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpp-EZ-rIm">
+                                            <rect key="frame" x="287" y="39" width="107" height="39"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="fcT-Bf-sxd" secondAttribute="bottom" constant="38" id="0qs-Mj-OA0"/>
+                                        <constraint firstItem="Tpp-EZ-rIm" firstAttribute="leading" secondItem="rpq-PK-cM1" secondAttribute="trailing" constant="22" id="8wb-us-eMo"/>
+                                        <constraint firstItem="rpq-PK-cM1" firstAttribute="top" secondItem="5b5-LR-fhJ" secondAttribute="bottom" constant="8" id="95P-1y-Dyg"/>
+                                        <constraint firstItem="fcT-Bf-sxd" firstAttribute="leading" secondItem="8Jq-jv-qpR" secondAttribute="leading" constant="20" id="CMV-jz-i3N"/>
+                                        <constraint firstItem="rpq-PK-cM1" firstAttribute="leading" secondItem="fcT-Bf-sxd" secondAttribute="trailing" constant="26" id="P3D-WY-gSG"/>
+                                        <constraint firstItem="5b5-LR-fhJ" firstAttribute="top" secondItem="8Jq-jv-qpR" secondAttribute="top" constant="11" id="WWr-4w-Gxk"/>
+                                        <constraint firstItem="fcT-Bf-sxd" firstAttribute="top" secondItem="8Jq-jv-qpR" secondAttribute="top" constant="39" id="X2g-0a-ZFd"/>
+                                        <constraint firstAttribute="bottom" secondItem="5b5-LR-fhJ" secondAttribute="bottom" constant="85" id="Yv1-c5-MHb"/>
+                                        <constraint firstAttribute="trailing" secondItem="Tpp-EZ-rIm" secondAttribute="trailing" constant="20" id="buB-tW-865"/>
+                                        <constraint firstAttribute="trailing" secondItem="rpq-PK-cM1" secondAttribute="trailing" constant="149" id="cUo-qe-X53"/>
+                                        <constraint firstItem="rpq-PK-cM1" firstAttribute="leading" secondItem="8Jq-jv-qpR" secondAttribute="leading" constant="150" id="cdn-Mq-8BA"/>
+                                        <constraint firstAttribute="bottom" secondItem="rpq-PK-cM1" secondAttribute="bottom" constant="38" id="d1q-2J-tLg"/>
+                                        <constraint firstAttribute="bottom" secondItem="Tpp-EZ-rIm" secondAttribute="bottom" constant="38" id="hG8-23-6gG"/>
+                                        <constraint firstItem="Tpp-EZ-rIm" firstAttribute="top" secondItem="8Jq-jv-qpR" secondAttribute="top" constant="39" id="viE-59-ciC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="5b5-LR-fhJ" firstAttribute="centerX" secondItem="yKc-rV-Sma" secondAttribute="centerX" id="USe-vN-1Et"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="HospitalName" destination="EDQ-yP-w6O" id="uhR-gc-u9h"/>
-                                    <outlet property="TotalTime" destination="wKh-69-nDy" id="suc-v1-6bv"/>
-                                    <outlet property="TravelTime" destination="t8I-GN-9CH" id="Gzn-9f-5tU"/>
-                                    <outlet property="WaitTime" destination="9iz-eB-91J" id="5iy-he-P1o"/>
+                                    <outlet property="HospitalName" destination="5b5-LR-fhJ" id="zT7-xC-9Cb"/>
+                                    <outlet property="TotalTime" destination="Tpp-EZ-rIm" id="ukh-6f-Aic"/>
+                                    <outlet property="TravelTime" destination="fcT-Bf-sxd" id="LOn-zB-I6b"/>
+                                    <outlet property="WaitTime" destination="rpq-PK-cM1" id="Ccw-Ks-Yc3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

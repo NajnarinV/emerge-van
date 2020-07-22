@@ -13,12 +13,10 @@ import CoreLocation
 
 class MyCell: UITableViewCell{
 
-
-    @IBOutlet weak var HospitalName: UITextField!
-    @IBOutlet weak var WaitTime: UITextField!
-    
-    @IBOutlet weak var TotalTime: UITextField!
-    @IBOutlet weak var TravelTime: UITextField!
+    @IBOutlet weak var HospitalName: UILabel!
+    @IBOutlet weak var TravelTime: UILabel!
+    @IBOutlet weak var WaitTime: UILabel!
+    @IBOutlet weak var TotalTime: UILabel!
 }
     
 class HospitalTableViewController: UITableViewController, CLLocationManagerDelegate {
@@ -63,16 +61,13 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
                                 if let minutes = Int(waitTime.suffix(2)){
                                     
                                     let time = Int(hours*60 + minutes)
-                                    self.objectArray.append(Object(Name: key, Time: time))
+                                    
+                                        self.objectArray.append(Object(Name: key, Time: time))
+                                    
 
-                                }}
-                                                        
-                            
-                }
-            
-                        
-                        
-                    }
+                                }}}}
+                    DispatchQueue.main.async{
+                        self.tableView.reloadData()}
 
                 }}
             catch {
@@ -84,7 +79,7 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
         
         
         
-        waitTimeTask.resume()
+            waitTimeTask.resume()
         
         
     }
@@ -118,6 +113,8 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
                            
                         }
                         
+                      
+                        
                    
                     
                         
@@ -145,6 +142,20 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
     
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
              let cell = tableView.dequeueReusableCell(withIdentifier: "EstimateTableViewCell", for: indexPath) as! MyCell
+            
+            if objectArray.count > 0{
+                let index = indexPath.row
+                cell.HospitalName.text = (self.objectArray[index].Name as! String)
+                cell.WaitTime.text = (self.objectArray[index].Time as! String)
+                
+                
+            }
+            
+            
+            
+            
+            
+            
             
             
             return cell

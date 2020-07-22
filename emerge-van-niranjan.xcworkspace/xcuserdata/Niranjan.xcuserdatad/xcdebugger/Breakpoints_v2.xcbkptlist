@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DACF5D4C-7DE2-43A0-8B56-700144B96593"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7EA3A687-CA15-44CB-B676-252EB4ACD89B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "emerge-van-niranjan/HospitalTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "MyCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "7EA3A687-CA15-44CB-B676-252EB4ACD89B - 9babb5a6bf45e166"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "emerge_van_niranjan.MyCell.HospitalName.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "emerge-van-niranjan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/emerge-van-niranjan/emerge-van-niranjan/HospitalTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "7EA3A687-CA15-44CB-B676-252EB4ACD89B - 8f896f17729f4552"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "emerge_van_niranjan.MyCell.HospitalName.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "emerge-van-niranjan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/emerge-van-niranjan/emerge-van-niranjan/HospitalTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "155">
+               </Location>
+               <Location
+                  uuid = "7EA3A687-CA15-44CB-B676-252EB4ACD89B - cbaff53f0e127665"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "emerge_van_niranjan.MyCell.HospitalName.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "emerge-van-niranjan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/emerge-van-niranjan/emerge-van-niranjan/HospitalTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  uuid = "7EA3A687-CA15-44CB-B676-252EB4ACD89B - d8b6aeec134e5d09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "emerge_van_niranjan.MyCell.HospitalName.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "emerge-van-niranjan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/emerge-van-niranjan/emerge-van-niranjan/HospitalTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "7EA3A687-CA15-44CB-B676-252EB4ACD89B - a8b25d5870331a2b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "emerge_van_niranjan.MyCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; emerge_van_niranjan.MyCell"
+                  moduleName = "emerge-van-niranjan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/emerge-van-niranjan/emerge-van-niranjan/HospitalTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "257">
+               </Location>
+               <Location
+                  uuid = "7EA3A687-CA15-44CB-B676-252EB4ACD89B - 28971bc55e3f327c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "emerge_van_niranjan.MyCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;emerge_van_niranjan.MyCell&gt;"
+                  moduleName = "emerge-van-niranjan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/emerge-van-niranjan/emerge-van-niranjan/HospitalTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "198">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
