@@ -23,6 +23,7 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
     
     
     
+    
     var locationManager: CLLocationManager?
     var currentLocation: [Double] = [1,2]
     var bookings: NSDictionary = [:]
@@ -45,10 +46,14 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
         locationManager?.delegate = self
          }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getUserLocation()
-    
+        
+        
+        
         let waitTimeTask = URLSession.shared.dataTask(with: URL(string :"https://helloworld-6dcqnh4gka-uw.a.run.app")!) { data,response ,error in
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: [])
@@ -66,6 +71,8 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
                                     
 
                                 }}}}
+                    
+                    
                     DispatchQueue.main.async{
                         self.tableView.reloadData()}
 
@@ -80,9 +87,7 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
         
         
             waitTimeTask.resume()
-        
-        
-    }
+        }
     
     func locationManager(_ manager: CLLocationManager,  didUpdateLocations locations: [CLLocation]) {
         if (self.currentLocation[0] != locations.last?.coordinate.latitude) && (self.currentLocation[1] != locations.last?.coordinate.longitude){
@@ -99,26 +104,17 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
             
             let json = try JSONSerialization.jsonObject(with: data!, options: [])
                 if let jsonDict=json as? NSDictionary{
-                    if let array = jsonDict["durations"] as? [Array<Any>]{
-                        
-                        
-                        for i in array{
-                            for j in i{
-                            
-                                self.travelTimeArray.append(round((j as? Double)!/60))
-                                
+                    if let array = jsonDict["durations"] as? [Any]{
+                        if let times = array[0] as? [Double]{
+                            for time in times{
+                                self.travelTimeArray.append(Int(time))
                             }
-                            
-                            
-                           
                         }
                         
-                      
-                        
-                   
-                    
-                        
                     }
+                    
+                    
+                   
                 }            }
             catch{
                  print("JSON error: \(error.localizedDescription)")
@@ -143,15 +139,34 @@ class HospitalTableViewController: UITableViewController, CLLocationManagerDeleg
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
              let cell = tableView.dequeueReusableCell(withIdentifier: "EstimateTableViewCell", for: indexPath) as! MyCell
             
-            if objectArray.count > 0{
+            
+            cell.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha:1)
+            let a = objectArray.count > 0
+            let b = travelTimeArray.count > 0
+            
+            if a{
                 let index = indexPath.row
                 cell.HospitalName.text = (self.objectArray[index].Name as! String)
-                cell.WaitTime.text = (self.objectArray[index].Time as! String)
-                
+                if let time = self.objectArray[index].Time as? Int{
+                    cell.WaitTime.text = String(time) + " mins"
+                }
+                cell.HospitalName.adjustsFontSizeToFitWidth = true
                 
             }
             
+            if b{
+                if let travelTime = travelTimeArray[indexPath.row] as? Int{
+                    cell.TravelTime.text = String(travelTime) + " mins"
+                }
+            }
             
+            if a && b{
+                if let travel = self.travelTimeArray[indexPath.row] as? Int {
+                    if let wait = self.objectArray[indexPath.row].Time as? Int{
+                        cell.TotalTime.text = String(wait+travel) + " mins"
+                    }
+                }
+            }
             
             
             

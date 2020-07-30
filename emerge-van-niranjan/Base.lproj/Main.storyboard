@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ccX-35-KbX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,13 +22,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5b5-LR-fhJ">
-                                            <rect key="frame" x="150" y="11" width="114.5" height="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="5b5-LR-fhJ">
+                                            <rect key="frame" x="20" y="11" width="374" height="20"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Hospital Name">
                                                     <attributes>
                                                         <font key="NSFont" size="17" name="TrebuchetMS-Bold"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
@@ -52,21 +52,70 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rED-0z-ibE">
+                                            <rect key="frame" x="27.5" y="85" width="89" height="20"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Travel Time">
+                                                    <attributes>
+                                                        <font key="NSFont" size="17" name="TrebuchetMS-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PdY-kt-ioc">
+                                            <rect key="frame" x="171.5" y="85" width="72" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="72" id="8vW-DD-dAN"/>
+                                            </constraints>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Wait Time">
+                                                    <attributes>
+                                                        <font key="NSFont" size="17" name="TrebuchetMS-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pev-iP-hjF">
+                                            <rect key="frame" x="300" y="86" width="80" height="21"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Total Time">
+                                                    <attributes>
+                                                        <font key="NSFont" size="17" name="TrebuchetMS-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="fcT-Bf-sxd" secondAttribute="bottom" constant="38" id="0qs-Mj-OA0"/>
+                                        <constraint firstItem="fcT-Bf-sxd" firstAttribute="centerX" secondItem="rED-0z-ibE" secondAttribute="centerX" id="19v-IY-8Zs"/>
+                                        <constraint firstItem="rED-0z-ibE" firstAttribute="height" secondItem="PdY-kt-ioc" secondAttribute="height" id="5Lz-TC-n9w"/>
+                                        <constraint firstItem="PdY-kt-ioc" firstAttribute="centerX" secondItem="rpq-PK-cM1" secondAttribute="centerX" id="85H-D6-kvH"/>
                                         <constraint firstItem="Tpp-EZ-rIm" firstAttribute="leading" secondItem="rpq-PK-cM1" secondAttribute="trailing" constant="22" id="8wb-us-eMo"/>
                                         <constraint firstItem="rpq-PK-cM1" firstAttribute="top" secondItem="5b5-LR-fhJ" secondAttribute="bottom" constant="8" id="95P-1y-Dyg"/>
                                         <constraint firstItem="fcT-Bf-sxd" firstAttribute="leading" secondItem="8Jq-jv-qpR" secondAttribute="leading" constant="20" id="CMV-jz-i3N"/>
+                                        <constraint firstItem="Pev-iP-hjF" firstAttribute="leading" secondItem="PdY-kt-ioc" secondAttribute="trailing" constant="56.5" id="DT2-bp-req"/>
+                                        <constraint firstItem="rED-0z-ibE" firstAttribute="bottom" secondItem="8Jq-jv-qpR" secondAttribute="bottomMargin" id="Ddn-vW-r8f"/>
+                                        <constraint firstItem="Pev-iP-hjF" firstAttribute="centerX" secondItem="Tpp-EZ-rIm" secondAttribute="centerX" id="HaY-Zo-fY3"/>
                                         <constraint firstItem="rpq-PK-cM1" firstAttribute="leading" secondItem="fcT-Bf-sxd" secondAttribute="trailing" constant="26" id="P3D-WY-gSG"/>
+                                        <constraint firstItem="Pev-iP-hjF" firstAttribute="top" secondItem="Tpp-EZ-rIm" secondAttribute="bottom" constant="8" id="QZi-4s-boG"/>
                                         <constraint firstItem="5b5-LR-fhJ" firstAttribute="top" secondItem="8Jq-jv-qpR" secondAttribute="top" constant="11" id="WWr-4w-Gxk"/>
                                         <constraint firstItem="fcT-Bf-sxd" firstAttribute="top" secondItem="8Jq-jv-qpR" secondAttribute="top" constant="39" id="X2g-0a-ZFd"/>
+                                        <constraint firstItem="PdY-kt-ioc" firstAttribute="baseline" secondItem="rED-0z-ibE" secondAttribute="baseline" id="X3I-NQ-ofa"/>
                                         <constraint firstAttribute="bottom" secondItem="5b5-LR-fhJ" secondAttribute="bottom" constant="85" id="Yv1-c5-MHb"/>
                                         <constraint firstAttribute="trailing" secondItem="Tpp-EZ-rIm" secondAttribute="trailing" constant="20" id="buB-tW-865"/>
                                         <constraint firstAttribute="trailing" secondItem="rpq-PK-cM1" secondAttribute="trailing" constant="149" id="cUo-qe-X53"/>
                                         <constraint firstItem="rpq-PK-cM1" firstAttribute="leading" secondItem="8Jq-jv-qpR" secondAttribute="leading" constant="150" id="cdn-Mq-8BA"/>
                                         <constraint firstAttribute="bottom" secondItem="rpq-PK-cM1" secondAttribute="bottom" constant="38" id="d1q-2J-tLg"/>
+                                        <constraint firstItem="PdY-kt-ioc" firstAttribute="leading" secondItem="rED-0z-ibE" secondAttribute="trailing" constant="55" id="dBt-cf-Dpn"/>
                                         <constraint firstAttribute="bottom" secondItem="Tpp-EZ-rIm" secondAttribute="bottom" constant="38" id="hG8-23-6gG"/>
+                                        <constraint firstItem="PdY-kt-ioc" firstAttribute="height" secondItem="Pev-iP-hjF" secondAttribute="height" multiplier="0.952381" id="mtf-mZ-Zfm"/>
                                         <constraint firstItem="Tpp-EZ-rIm" firstAttribute="top" secondItem="8Jq-jv-qpR" secondAttribute="top" constant="39" id="viE-59-ciC"/>
                                     </constraints>
                                 </tableViewCellContentView>
